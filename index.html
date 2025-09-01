@@ -31,169 +31,6 @@
 
   <link rel="stylesheet" href="style/main.css">
 
-  <style>
-    .layout {
-      display: grid;
-      grid-template-columns: 1fr 360px;
-      gap: 18px;
-    }
-
-    #map {
-      width: 100%;
-      height: var(--map-height-desktop);
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-      overflow: hidden;
-    }
-
-    aside {
-      background: rgba(30, 31, 35, 0.9);
-      padding: 14px;
-      border-radius: 12px;
-      height: var(--map-height-desktop);
-      overflow: auto;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.5);
-    }
-
-    .search {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    .search input {
-      flex: 1;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #444;
-      background: #1e1f23;
-      color: var(--rf-contrast);
-    }
-
-    .search button {
-      background: var(--rf-red);
-      color: white;
-      border: none;
-      padding: 10px 12px;
-      border-radius: 8px;
-      transition: background 0.2s;
-    }
-    .search button:hover {
-      background: #ff333f;
-    }
-
-    .clip {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-
-    }
-
-    .clip-card {
-      border-radius: 8px;
-      padding: 10px;
-      border: 1px solid #333;
-      background: linear-gradient(180deg, #1b1c1f, #141517);
-      color: var(--rf-contrast);
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
-    .clip-card:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    }
-
-    .clip-title {
-      font-weight: 700;
-      color: white;
-    }
-
-    .clip-meta {
-      font-size: 0.85rem;
-      color: #aaa;
-    }
-
-    .clip-controls {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .btn {
-      border: none;
-
-      color: white;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .btn:hover {
-      text-decoration: underline;
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border: 1px solid #555;
-      color: var(--rf-contrast);
-      transition: border 0.2s, color 0.2s;
-    }
-    .btn-secondary:hover {
-      border-color: var(--rf-red);
-      color: var(--rf-red);
-    }
-
-    .mobile-player {
-      display: none;
-      position: fixed;
-      left: 12px;
-      right: 12px;
-      bottom: 12px;
-      background: rgba(30,31,35,0.95);
-      border-radius: 12px;
-      padding: 10px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-      align-items: center;
-      gap: 12px;
-      backdrop-filter: blur(6px);
-    }
-
-    .mobile-player .info {
-      flex: 1;
-      color: var(--rf-contrast);
-    }
-
-
-      /* Personnalisation de la barre de défilement */
-  aside::-webkit-scrollbar {
-    width: 12px; /* Largeur de la barre de défilement verticale */
-    height: 12px; /* Hauteur de la barre de défilement horizontale */
-  }
-
-  aside::-webkit-scrollbar-thumb {
-    background-color: #555; /* Couleur de la partie glissante (le "thumb") */
-    border-radius: 6px; /* Bord arrondi pour le "thumb" */
-  }
-
-  aside::-webkit-scrollbar-track {
-    background-color: #333; /* Couleur de la piste de défilement */
-    border-radius: 6px; /* Bord arrondi pour la piste */
-  }
-
-  /* Optionnel : quand la souris est sur la barre de défilement */
-  aside::-webkit-scrollbar-thumb:hover {
-    background-color: #888; /* Change la couleur du "thumb" au survol */
-  }
-
-    @media (max-width:900px) {
-      .layout { grid-template-columns: 1fr; }
-      /*aside { height: auto; order: 2; }*/
-      #map { height: var(--map-height-mobile); }
-      .mobile-player { display: flex; }
-    }
-
-    .leaflet-control-container .leaflet-top.leaflet-left {
-      top: 0px;
-    }
-  </style>
 
 </head>
 
@@ -265,7 +102,7 @@
   </section>
 
 
-    <section class="max-w-6xl mx-auto px-6 py-8">
+    <section class="max-w-6xl mx-auto px-6 py-6">
 
         <h2 class="text-3xl font-bold mb-4">À propos de La Ville Sonore</h2>
 
@@ -341,8 +178,8 @@ Plutôt qu’une simple sonothèque, le projet propose une cartographie sensible
 />
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-<section id="nouveautes" class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between">
-  <!-- Texte à gauche -->
+<!--<section id="nouveautes" class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between">
+
   <div class="w-full md:w-1/2 pr-0 md:pr-8 mb-8 md:mb-0">
     <h2 class="text-3xl font-bold mb-2">À la Une — Cartes postales sonores</h2>
     <p class="text-2xl font-bold mb-4">Écouter un lieu, c’est déjà voyager</p>
@@ -352,11 +189,10 @@ Plutôt qu’une simple sonothèque, le projet propose une cartographie sensible
     <a href="" class="hover:underline font-semibold">En savoir plus</a>
   </div>
 
-  <!-- Carrousel à droite -->
   <div class="w-full md:w-1/2">
     <div class="swiper rounded-lg shadow-lg">
       <div class="swiper-wrapper">
-        <!-- Slide 1 -->
+
         <div class="swiper-slide relative">
           <img src="img/occitanie.webp" alt="Toulouse" class="w-full h-80 object-cover rounded-lg">
           <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center text-white p-4 rounded-lg">
@@ -366,7 +202,7 @@ Plutôt qu’une simple sonothèque, le projet propose une cartographie sensible
         </div>
       </div>
 
-      <!-- Pagination & navigation -->
+
       <div class="swiper-pagination"></div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
@@ -374,8 +210,6 @@ Plutôt qu’une simple sonothèque, le projet propose une cartographie sensible
   </div>
 </section>
 
-
-<!-- Init Swiper -->
 <script>
   const swiper = new Swiper('.swiper', {
     loop: true,
@@ -393,6 +227,22 @@ Plutôt qu’une simple sonothèque, le projet propose une cartographie sensible
     },
   });
 </script>
+
+
+-->
+
+<section id="nouveautes" class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between">
+
+  <div class="clip-card w-full pr-0 md:pr-8 mb-8 md:mb-0">
+    <h2 class="text-3xl font-bold mb-2 mt-2">À la Une — Villes jumelées, voix jumelles</h2>
+    <p class="text-2xl font-bold">Écouter un lieu, c’est déjà voyager</p>
+    <p class="mb-4">
+      Depuis plusieurs décennies, les villes françaises se lient à d’autres villes du monde à travers les jumelages, cherchant à favoriser les rencontres, les échanges culturels et la solidarité internationale. Ce projet propose d’explorer ces liens sous un angle inédit : l’écoute.
+    </p>
+    <a href="villes-jumelees.html" class="hover:underline font-semibold">En savoir plus</a>
+  </div>
+
+</section>
 
 
 

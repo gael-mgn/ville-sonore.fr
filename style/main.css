@@ -330,3 +330,189 @@ background-position: center;
     transform: none; /* pas de zoom sur mobile */
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.layout {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 18px;
+    }
+
+    #map {
+      width: 100%;
+      height: var(--map-height-desktop);
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+      overflow: hidden;
+    }
+
+    aside {
+      background: rgba(30, 31, 35, 0.9);
+      padding: 14px;
+      border-radius: 12px;
+      height: var(--map-height-desktop);
+      overflow: auto;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+    }
+
+    .search {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .search input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #444;
+      background: #1e1f23;
+      color: var(--rf-contrast);
+    }
+
+    .search button {
+      background: var(--rf-red);
+      color: white;
+      border: none;
+      padding: 10px 12px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .search button:hover {
+      background: #ff333f;
+    }
+
+    .clip {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+    }
+
+    .clip-card {
+      border-radius: 8px;
+      padding: 10px;
+      border: 1px solid #333;
+      background: linear-gradient(180deg, #1b1c1f, #141517);
+      color: var(--rf-contrast);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .clip-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .clip-title {
+      font-weight: 700;
+      color: white;
+    }
+
+    .clip-meta {
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+
+    .clip-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .btn {
+      border: none;
+
+      color: white;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      text-decoration: underline;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid #555;
+      color: var(--rf-contrast);
+      transition: border 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--rf-red);
+      color: var(--rf-red);
+    }
+
+    .mobile-player {
+      display: none;
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      background: rgba(30,31,35,0.95);
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+      align-items: center;
+      gap: 12px;
+      backdrop-filter: blur(6px);
+    }
+
+    .mobile-player .info {
+      flex: 1;
+      color: var(--rf-contrast);
+    }
+
+
+      /* Personnalisation de la barre de défilement */
+  aside::-webkit-scrollbar {
+    width: 12px; /* Largeur de la barre de défilement verticale */
+    height: 12px; /* Hauteur de la barre de défilement horizontale */
+  }
+
+  aside::-webkit-scrollbar-thumb {
+    background-color: #555; /* Couleur de la partie glissante (le "thumb") */
+    border-radius: 6px; /* Bord arrondi pour le "thumb" */
+  }
+
+  aside::-webkit-scrollbar-track {
+    background-color: #333; /* Couleur de la piste de défilement */
+    border-radius: 6px; /* Bord arrondi pour la piste */
+  }
+
+  /* Optionnel : quand la souris est sur la barre de défilement */
+  aside::-webkit-scrollbar-thumb:hover {
+    background-color: #888; /* Change la couleur du "thumb" au survol */
+  }
+
+    @media (max-width:900px) {
+      .layout { grid-template-columns: 1fr; }
+      /*aside { height: auto; order: 2; }*/
+      #map { height: var(--map-height-mobile); }
+      .mobile-player { display: flex; }
+    }
+
+    .leaflet-control-container .leaflet-top.leaflet-left {
+      top: 0px;
+    }
