@@ -453,6 +453,47 @@ background-position: center;
       text-decoration: underline;
     }
 
+
+
+/* spinner pour boutons de lecture */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  min-width: 64px;
+}
+
+/* élément loader injecté */
+.btn .loader {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.18);
+  border-top-color: white;
+  animation: spin 0.85s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* état 'loading' (optionnel : atténuer texte) */
+.btn.loading {
+  pointer-events: none; /* évite double clics */
+  opacity: 0.95;
+}
+
+/* si tu veux cacher le texte durant le chargement, décommente :
+.btn.loading .btn-text { opacity: 0.0; }
+*/
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
+
+
+
     .btn-secondary {
       background: transparent;
       border: 1px solid #555;
@@ -464,25 +505,6 @@ background-position: center;
       color: var(--rf-red);
     }
 
-    .mobile-player {
-      display: none;
-      position: fixed;
-      left: 12px;
-      right: 12px;
-      bottom: 12px;
-      background: rgba(30,31,35,0.95);
-      border-radius: 12px;
-      padding: 10px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-      align-items: center;
-      gap: 12px;
-      backdrop-filter: blur(6px);
-    }
-
-    .mobile-player .info {
-      flex: 1;
-      color: var(--rf-contrast);
-    }
 
 
       /* Personnalisation de la barre de défilement */
@@ -516,3 +538,71 @@ background-position: center;
     .leaflet-control-container .leaflet-top.leaflet-left {
       top: 0px;
     }
+
+
+
+
+        .mobile-player {
+      /*display: none;*/
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      background: rgba(30,31,35,0.95);
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+      align-items: center;
+      gap: 12px;
+      backdrop-filter: blur(6px);
+    }
+    .mobile-player { display: flex; }
+
+    .mobile-player .info {
+      flex: 1;
+      color: var(--rf-contrast);
+    }
+
+
+
+
+/* ---- Loader global (déjà présent) ---- */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Loader pour les boutons (existant) */
+.btn .loader {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.18);
+  border-top-color: white;
+  animation: spin 0.85s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Petit loader pour le titre mobile */
+#mp-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+/* loader plus petit, placé à côté du titre */
+.mp-loader-small {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.14);
+  border-top-color: white;
+  animation: spin 0.85s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0px;
+}
+
+/* état aria-busy visuel (optionnel) */
+#mp-title[aria-busy="true"] { opacity: 0.95; }
